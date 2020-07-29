@@ -1,9 +1,9 @@
 Option Explicit
 
-Const Sciezka_do_szablonow As String = "C:\Users\165753\AppData\Roaming\Microsoft\Szablony\"
-Const ALCOPath As String = "\\wro01scl\bzwbk\D_RF\ALMRisk\00_Raporty\20_ALCo Portfel\"
-Const tmpPath As String = "C:\Users\165753\Desktop\tmp\"
-Const FXPath As String = "\\wro01scl\bzwbk\D_RF\ALMRisk\00_Raporty\04_Limity\Limity_historia\FX_ALM\2017\"
+Const Sciezka_do_szablonow As String = ""
+Const ALCOPath As String = ""
+Const tmpPath As String = ""
+Const FXPath As String = ""
 
 Sub AlcoRap()
     Dim olApp As Outlook.Application
@@ -86,7 +86,7 @@ Sub stawki()
     
 xlApp.ScreenUpdating = False
     
-    sPath = "\\wro01scl\bzwbk\D_RF\ALL\POLONIA\"
+    sPath = ""
     xlApp.Visible = False
     Set wRates = xlApp.Workbooks.Open(sPath & "rates_history.xlsx")
     nRow = wRates.Sheets(1).Range("a2").End(xlDown).Row + 1
@@ -144,7 +144,7 @@ Sub kontrola_dane()
     
     Set objMsg = Application.CreateItem(olMailItem)
     With objMsg
-        .To = "piotr.radzewicz@bzwbk.pl"
+        .To = ""
         .Subject = "Kontrola danych do raportu ALM portfolio za " & MonthName(Month(data_raportu), False)
         .HTMLBody = sBody
         .Display
@@ -165,8 +165,8 @@ Sub kontrola_finanse()
     
     Set objMsg = Application.CreateItem(olMailItem)
     With objMsg
-        .To = "piotr.radzewicz@bzwbk.pl"
-        .CC = "alina.strugala@bzwbk.pl"
+        .To = ""
+        .CC = ""
         .Subject = "Wyniki kontroli pozycji ALM ze sprawozdaniem DFS za " & MonthName(Month(data_raportu), False)
         .HTMLBody = sBody
         .Display
